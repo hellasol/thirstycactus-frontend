@@ -1,11 +1,18 @@
-import React from "react";
+import ReactDOM from "react-dom";
+import React, { useState } from "react";
+import api from "../api";
+import { Col, FormGroup, Label, Input, NavLink } from "reactstrap";
+import { Link } from "react-router-dom";
+import { AddPlant } from "../add-plant/addPlant";
+import {MySchedule} from "../my-schedule/mySchedule";
 
 export function Dashboard() {
   return (
     <div>
-      <br></br>
-      <br></br>
-      <h1>This is the Dashboard</h1>
+      <MySchedule />
+      <AddPlant />
     </div>
   );
 }
+
+export default Dashboard;

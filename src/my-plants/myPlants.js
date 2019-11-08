@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from "react";
 import api from "../api";
+import {
+  Card,
+  Button,
+  CardImg,
+  CardTitle,
+  CardText,
+  CardSubtitle,
+  CardBody,
+  Col,
+  CardColumns
+} from "reactstrap";
 
 export function MyPlants() {
   const [plants, setPlants] = useState([]);
@@ -12,16 +23,40 @@ export function MyPlants() {
 
   return (
     <div>
-      <h1>All Your Plants:</h1>
-      {plants.map(plant => (
-        <p key={plant._id}>
-          <hr></hr>
-          <p>Name: {plant.name}</p>
-          <p>Buy Date: {plant.buydate} </p>
-          <p>Comment: {plant.comment} </p>
-          <button>Get {plant.name}'s schedule</button>
-        </p>
-      ))}
+      <br></br>
+      <CardColumns>
+        {plants.map(plant => (
+          <p key={plant._id}>
+            <Card
+              body
+              inverse
+              style={{
+                backgroundColor: "#333",
+                borderColor: "#333",
+                position: ""
+              }}
+              className="text-left"
+            >
+              <CardBody>
+                <CardTitle>
+                  <h3>{plant.name}</h3>
+                </CardTitle>
+                <CardSubtitle>Bought: {plant.buydate}</CardSubtitle>
+                <CardImg
+                  top
+                  width="100%"
+                  src={plant.image}
+                  alt="Card image cap"
+                />
+                <CardText>Comment: {plant.comment}</CardText>
+                <Col sm="12" md={{ size: 6, offset: 3 }}>
+                  <Button>Get schedule</Button>
+                </Col>
+              </CardBody>
+            </Card>
+          </p>
+        ))}
+      </CardColumns>
     </div>
   );
 }

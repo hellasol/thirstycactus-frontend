@@ -13,6 +13,8 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import { userInfo } from "os";
+import {UserName} from "../user/userName"
 
 export class Header extends Component {
   constructor(props) {
@@ -34,40 +36,39 @@ export class Header extends Component {
     const { navCollapsed } = this.state;
     return (
       <div>
-        <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">Thirsty Cactus</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  {/* <Link to="/">Dashboard</Link> */}
-                  <NavLink href="/">Home</NavLink>
-                </NavItem>
-                <NavItem>
-                  {/* TODO: MAKE USER PAGE */}
-                  <NavLink href="/User/">Solveig Lund</NavLink>
-                </NavItem>
+        <Navbar className="navbar" color="light" light expand="md">
+          <NavbarBrand href="/">Thirsty Cactus</NavbarBrand>
+          <NavbarToggler className="navbar-toggle" onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                {/* <Link to="/">Dashboard</Link> */}
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                {/* TODO: MAKE USER PAGE */}
+                <UserName />
+              </NavItem>
 
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    Manage Plants
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>
-                      <Link to="/addPlant/">Add Plant</Link>{" "}
-                    </DropdownItem>
-                    <DropdownItem>
-                      <Link to="/mySchedule/">Schedule</Link>
-                    </DropdownItem>
-                
-                    <DropdownItem>
-                      <Link to="/myPlants/">My Plants</Link>{" "}
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </Nav>
-            </Collapse>
-        
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Manage Plants
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <Link to="/addPlant/">Add Plant</Link>{" "}
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link to="/mySchedule/">Schedule</Link>
+                  </DropdownItem>
+
+                  <DropdownItem>
+                    <Link to="/myPlants/">My Plants</Link>{" "}
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
         </Navbar>
       </div>
     );

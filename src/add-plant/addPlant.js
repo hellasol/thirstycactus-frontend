@@ -1,30 +1,26 @@
 import ReactDOM from "react-dom";
 import React, { useState } from "react";
 import api from "../api";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText
-} from "reactstrap";
+import { Col, FormGroup, Label, Input, NavLink } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export function AddPlant() {
   const [plantname, setPlantname] = useState("");
   const [buydate, setBuydate] = useState("");
-  const [comment, setcomment] = useState("");
+  const [comment, setComment] = useState("");
+  const [image, setImage] = useState(null);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await api.plants.create({ name: plantname, buydate, comment });
+    await api.plants.create({ name: plantname, buydate, comment, image });
     setPlantname("");
     setBuydate("");
-    setcomment("");
+    setComment("");
+    setImage(null);
   }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form encType="multipart/form-data" onSubmit={handleSubmit}>
       <div>
         <br></br>
         <h1>Add a new Plant</h1>
@@ -45,13 +41,6 @@ export function AddPlant() {
           </Col>
         </FormGroup>
 
-        {/* <p>Plant type:</p>
-        <input
-          type="text"
-          name="plantname"
-          value={plantname}
-          onChange={e => setPlantname(e.target.value)}
-        /> */}
         <FormGroup row>
           <Label for="addDate" sm={2}>
             Buy Date
@@ -68,14 +57,6 @@ export function AddPlant() {
           </Col>
         </FormGroup>
 
-        {/* <p>Buy date:</p>
-        <input
-          type="text"
-          name="buydate"
-          value={buydate}
-          onChange={e => setBuydate(e.target.value)}
-        /> */}
-
         <FormGroup row>
           <Label for="comment" sm={2}>
             Comment
@@ -86,24 +67,31 @@ export function AddPlant() {
               name="comment"
               id="comment"
               value={comment}
-              onChange={e => setcomment(e.target.value)}
+              onChange={e => setComment(e.target.value)}
               placeholder="Add important information about your plant"
             />
           </Col>
         </FormGroup>
 
-        {/* <p>Comment:</p>
-        <textarea
-          name="comment"
-          value={comment}
-          onChange={e => setcomment(e.target.value)}
-        /> */}
-        <br />
+        <FormGroup row>
+          <Label for="image" sm={2}>
+            Image
+          </Label>
+          <Col sm={10}>
+            <Input
+              type="file"
+              name="image"
+              id="image"
+              onChange={e => setImage(e.target.files[0])}
+            />
+          </Col>
+        </FormGroup>
 
-        <input type="submit" />
+        <br />
+        <Input type="submit">submit</Input>
+
+        {/* <NavLink type="submit" href="/myPlants">Submit</NavLink> */}
       </div>
     </form>
   );
 }
-
-ReactDOM.render(<AddPlant />, document.getElementById("root"));
