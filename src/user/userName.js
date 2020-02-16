@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Card, CardText, CardBody,
-  CardTitle, CardImg, Button, CardColumns, NavLink
-} from 'reactstrap';
+import { NavLink } from 'reactstrap';
 import api from "../api";
 
 export function UserName () {

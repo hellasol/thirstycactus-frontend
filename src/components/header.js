@@ -13,8 +13,8 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import { userInfo } from "os";
 import {UserName} from "../user/userName"
+import { Row, Col } from 'reactstrap';
 
 export class Header extends Component {
   constructor(props) {
@@ -35,6 +35,8 @@ export class Header extends Component {
   render() {
     const { navCollapsed } = this.state;
     return (
+      <Row>
+      <Col >
       <div>
         <Navbar className="navbar" color="light" light expand="md">
           <NavbarBrand href="/">Thirsty Cactus</NavbarBrand>
@@ -42,35 +44,17 @@ export class Header extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                {/* <Link to="/">Dashboard</Link> */}
-                <NavLink href="/">Home</NavLink>
+                <NavLink href="/addPlant/">Add Plant</NavLink>
               </NavItem>
               <NavItem>
-                {/* TODO: MAKE USER PAGE */}
-                <UserName />
-              </NavItem>
-
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Manage Plants
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <Link to="/addPlant/">Add Plant</Link>{" "}
-                  </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/mySchedule/">Schedule</Link>
-                  </DropdownItem>
-
-                  <DropdownItem>
-                    <Link to="/myPlants/">My Plants</Link>{" "}
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                <NavLink href="/myPlants/">All Plants</NavLink>
+              </NavItem>         
             </Nav>
           </Collapse>
         </Navbar>
       </div>
+      </Col>
+    </Row>
     );
   }
 }
