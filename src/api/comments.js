@@ -1,9 +1,11 @@
+import { config } from "../config";
+
 /**
  * Get comments
  * @param {String} plantId
  */
 export async function findByPlantId(plantId) {
-  const response = await fetch(`/api/comments?plantId=${plantId}`);
+  const response = await fetch(`${config.apiUrl}/api/comments?plantId=${plantId}`);
   return response.json();
 }
 
@@ -13,7 +15,7 @@ export async function findByPlantId(plantId) {
  * @param {String} plantId
  */
 export async function add(comment, plantId) {
-  const response = await fetch("/api/comments", {
+  const response = await fetch(`${config.apiUrl}/api/comments`, {
     method: "POST",
     body: JSON.stringify({ comment, plantId }),
     headers: {
