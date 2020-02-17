@@ -2,7 +2,14 @@
   "name": "plant-app-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001",
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    }
+  },
   "dependencies": {
     "@trendmicro/react-sidenav": "^0.4.5",
     "axios": "^0.19.0",

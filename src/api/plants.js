@@ -1,4 +1,3 @@
-import { config } from "../config";
 
 //create plant
 export async function create(body) {
@@ -6,7 +5,7 @@ export async function create(body) {
   Object.entries(body).forEach(([key, value]) => {
     formData.append(key, value);
   });
-  const response = await fetch(`${config.apiUrl}/api/plants`, {
+  const response = await fetch(`/api/plants`, {
     method: "POST",
     body: formData
   });
@@ -15,7 +14,7 @@ export async function create(body) {
 
 //discover label
 export async function discoverLabel(id) {
-  const response = await fetch(`${config.apiUrl}/api/plants/${id}/discover-label`, {
+  const response = await fetch(`/api/plants/${id}/discover-label`, {
     method: "POST",
     });
   return response.json();
@@ -27,7 +26,7 @@ export async function update(id, body) {
   Object.entries(body).forEach(([key, value]) => {
     formData.append(key, value);
   });
-  const response = await fetch(`${config.apiUrl}/api/plants/${id}`, {
+  const response = await fetch(`/api/plants/${id}`, {
     method: "PUT",
     body: formData
   });
@@ -36,14 +35,14 @@ export async function update(id, body) {
 
 //trefle 
 export async function trefle(id) {
-  const response = await fetch(`${config.apiUrl}/api/plants/${id}/trefle-search`, {
+  const response = await fetch(`/api/plants/${id}/trefle-search`, {
     method: "POST",
   });
   return response.json();
 }
 
 export async function createImage(body) {
-  const response = await fetch(`${config.apiUrl}/api/plants/images`, {
+  const response = await fetch(`/api/plants/images`, {
     method: "POST",
     body: JSON.stringify(body),
     headers: {
@@ -55,6 +54,6 @@ export async function createImage(body) {
 
 //get all plants
 export async function get() {
-  const response = await fetch(`${config.apiUrl}/api/plants`);
+  const response = await fetch(`/api/plants`);
   return response.json();
 }
