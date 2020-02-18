@@ -47,7 +47,7 @@ export class Header extends Component {
                 <NavLink href="/addPlant/">Add Plant</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/myPlants/">All Plants</NavLink>
+                <NavLink href="/">All Plants</NavLink>
               </NavItem>         
             </Nav>
           </Collapse>

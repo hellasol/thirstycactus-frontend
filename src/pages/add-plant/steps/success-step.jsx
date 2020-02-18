@@ -10,7 +10,7 @@ export function SuccessStep({ plant }) {
 
 
   useEffect(() => {
-    setTimeout(() => history.push("/myPlants"), 3000)
+    setTimeout(() => history.push("/"), 3000)
     
   }, []);
   
