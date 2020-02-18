@@ -5,7 +5,7 @@
     },
     "proxies": {
       "/api/": {
-        "origin": "https://thirstycactus-backend.herokuapp.com/api/"
+        "origin": "https://thirstycactus-backend.herokuapp.com/api"
       }
     }
   }
