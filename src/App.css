@@ -40,3 +40,6 @@ form {
 Label {
   text-align: left;
 }
+.submitButton {
+  text-align: center;
+}

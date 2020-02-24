@@ -16,21 +16,18 @@ export function PlantFormStep({ onSuccess }) {
 
   return (
     <form encType="multipart/form-data" onSubmit={handleSubmit}>
-    <div>
       <br/>
       <h1>Add Plant</h1>
       <br/>
-      <FormGroup>
-          <Input
+          <input
             type="file"
             name="image"
             id="image"
             onChange={e => setImage(e.target.files[0])}
           />
-      </FormGroup>
-      <br />
-      <Button type="submit">Submit</Button>
-    </div>
+        <br/>
+        <br/>
+        <Button className="submitButton" type="submit">Submit</Button>
   </form>
   );
   }
