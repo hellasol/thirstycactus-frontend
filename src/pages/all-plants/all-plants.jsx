@@ -4,12 +4,9 @@ import {
   Card,
   Button,
   CardImg,
-  CardTitle,
   CardText,
-  CardSubtitle,
   CardBody,
   Col,
-  Row,
   CardColumns,
   Input,
 } from "reactstrap";
@@ -42,7 +39,8 @@ function Plant({ plant }) {
     const newComment = await api.comments.add(comment, plant._id);
     setComments([...comments, newComment]);
   }
-  return (<>
+  return (
+  <>
     <Card
       body
       inverse
@@ -53,26 +51,25 @@ function Plant({ plant }) {
       }}
       className="text-left"
     >
-        <CardImg
-          top
-          width="100%"
-          src={plant.image}
-          alt="Card image cap"
-        />
+      <CardImg
+        top
+        width="100%"
+        src={plant.image}
+        alt="Card image cap"
+      />
        <CardBody>
-
-        <CardText>Common name: {plant.commonName}</CardText>
-        <CardText>Scientific name: {plant.scientificName}</CardText>
-        <CardText>Family: {plant.familyName}</CardText>
-        <CardText>Plant log: </CardText>
-        {comments.map(comment => <CardText key={comment._id}>{comment.comment}</CardText>)}
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <CommentBox onCommentAdd={(comment) => handleCommentAdd(comment, plant._id)} />
-
-        </Col>
-      </CardBody>
-    </Card>
-  </>
+          <CardText>Common name: {plant.commonName}</CardText>
+          <CardText>Scientific name: {plant.scientificName}</CardText>
+          <CardText>Family: {plant.familyName}</CardText>
+          <CardText>Plant log: </CardText>
+          {comments.map(comment => <CardText key={comment._id}>{comment.comment}</CardText>)}
+         
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+           <CommentBox onCommentAdd={(comment) => handleCommentAdd(comment, plant._id)} />
+          </Col>
+         </CardBody>
+     </Card>
+    </>
   );
 }
 
@@ -90,7 +87,7 @@ function CommentBox({ onCommentAdd }) {
         id="comment"
         value={comment}
         onChange={e => setComment(e.target.value)}
-        placeholder="Add important information about your plant"
+        placeholder="Add information about your plant"
       />
       <Button onClick={() => handleClick()}>Submit</Button>
     </>

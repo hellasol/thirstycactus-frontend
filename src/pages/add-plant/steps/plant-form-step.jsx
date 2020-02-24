@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../../../api";
-import { FormGroup, Button, Input } from "reactstrap";
+import { Button } from "reactstrap";
 import Resizer from 'react-image-file-resizer';
 
 
@@ -28,8 +28,8 @@ export function PlantFormStep({ onSuccess }) {
         <br/>
         <br/>
         <Button className="submitButton" type="submit">Submit</Button>
-  </form>
-  );
+     </form>
+    );
   }
 
   function compress (image) {

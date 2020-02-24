@@ -8,12 +8,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from "reactstrap";
-import {UserName} from "../user/userName"
+// import {UserName} from "../user/userName"
 import { Row, Col } from 'reactstrap';
 
 export class Header extends Component {
@@ -52,9 +48,9 @@ export class Header extends Component {
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
-      </Col>
-    </Row>
+        </div>
+        </Col>
+        </Row>
     );
   }
 }

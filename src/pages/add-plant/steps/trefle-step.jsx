@@ -4,9 +4,7 @@ import {
   Card,
   Button,
   CardImg,
-  CardTitle,
   CardText,
-  CardSubtitle,
   CardBody,
 } from "reactstrap";
 
@@ -21,8 +19,6 @@ export function TrefleStep({ onSuccess, plant }) {
     const newPlant = await api.plants.update(plant._id, { trefleid });
     onSuccess(newPlant);
   }
-
-  
   return (
     <>
       {treflePlants.map(tp => <TreflePlant key={tp.id} treflePlant={tp} onClick={() => handleClick(tp.id)}/>)}
@@ -36,9 +32,9 @@ export function TrefleStep({ onSuccess, plant }) {
       <Card key={treflePlant.id}>
         {image && <CardImg top width="100%" src={image} alt="Card image cap" />}
         <CardBody>
-         <CardText>Common name: {treflePlant.commonName}</CardText>
-        <CardText>Scientific name: {treflePlant.scientificName}</CardText>
-        <CardText>Family: {treflePlant.familyName}</CardText>
+          <CardText>Common name: {treflePlant.commonName}</CardText>
+          <CardText>Scientific name: {treflePlant.scientificName}</CardText>
+          <CardText>Family: {treflePlant.familyName}</CardText>
           <Button onClick={onClick}>Select</Button>
         </CardBody>
       </Card>

@@ -42,9 +42,7 @@ export function AddPlant() {
     return <SuccessStep plant={plant}/>;
   }
 
-
-
     return (
-     <p>master</p>
+      null
     )
   }

@@ -21,17 +21,16 @@
   color: #09d3ac;
 }
 
-form {
+/* form {
   margin-right: 200px;
   margin-left: 200px;
-}
+} */
 
 .navbar {
   min-height: 100px;
 }
 
 .navbar-toggle {
-  /* (80px - button height 34px) / 2 = 23px */
   margin-top: 23px;
   padding: 9px 10px !important;
 }

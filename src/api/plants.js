@@ -1,4 +1,3 @@
-
 //create plant
 export async function create(body) {
   const formData = new FormData();
