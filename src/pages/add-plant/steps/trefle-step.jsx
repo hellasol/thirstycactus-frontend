@@ -7,13 +7,20 @@ import {
   CardText,
   CardBody,
 } from "reactstrap";
+import {SpinnerAnimation} from "../../../components/spinner"
+
 
 export function TrefleStep({ onSuccess, plant }) {
   const [treflePlants, setTreflePlants] = useState([]);
+  const [pending, setPending] = useState(false);
 
   useEffect(() => {
-    api.plants.trefle(plant._id).then(setTreflePlants);
+    setPending(true)
+    api.plants.trefle(plant._id).then(setTreflePlants).finally(() => setPending(false));
   }, [plant._id]);
+  if(pending) {
+    return <SpinnerAnimation />
+  }
 
   async function handleClick(trefleid) {
     const newPlant = await api.plants.update(plant._id, { trefleid });
@@ -21,6 +28,9 @@ export function TrefleStep({ onSuccess, plant }) {
   }
   return (
     <>
+    <br />
+    <h2>Find your plant</h2>
+    <br />
       {treflePlants.map(tp => <TreflePlant key={tp.id} treflePlant={tp} onClick={() => handleClick(tp.id)}/>)}
    </>
   )
