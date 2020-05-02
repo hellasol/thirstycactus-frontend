@@ -10,7 +10,7 @@ import {
   NavLink,
 } from "reactstrap";
 // import {UserName} from "../user/userName"
-import { Row, Col } from 'reactstrap';
+import { Row, Col } from "reactstrap";
 
 export class Header extends Component {
   constructor(props) {
@@ -20,37 +20,37 @@ export class Header extends Component {
     this.state = {
       isOpen: false,
       navCollapsed: true,
-      showNavbar: false
+      showNavbar: false,
     };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
   render() {
     const { navCollapsed } = this.state;
     return (
       <Row>
-      <Col >
-      <div>
-        <Navbar className="navbar" color="light" light expand="md">
-          <NavbarBrand href="/">Thirsty Cactus</NavbarBrand>
-          <NavbarToggler className="navbar-toggle" onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/addPlant/">Add Plant</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/">All Plants</NavLink>
-              </NavItem>         
-            </Nav>
-          </Collapse>
-        </Navbar>
-        </div>
+        <Col>
+          <div>
+            <Navbar className="navbar" color="light" light expand="md">
+              <NavbarBrand href="/">Thirsty Cactus</NavbarBrand>
+              <NavbarToggler className="navbar-toggle" onClick={this.toggle} />
+              <Collapse isOpen={this.state.isOpen} navbar>
+                <Nav className="ml-auto" navbar>
+                  <NavItem>
+                    <NavLink href="/addPlant/">Add Plant</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/">All Plants</NavLink>
+                  </NavItem>
+                </Nav>
+              </Collapse>
+            </Navbar>
+          </div>
         </Col>
-        </Row>
+      </Row>
     );
   }
 }

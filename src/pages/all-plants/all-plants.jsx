@@ -19,10 +19,12 @@ export function AllPlants() {
   }, []);
 
   return (
-    <div >
+    <div>
       <br />
       <CardColumns>
-        {plants.map(plant => <Plant key={plant._id} plant={plant} />)}
+        {plants.map((plant) => (
+          <Plant key={plant._id} plant={plant} />
+        ))}
       </CardColumns>
     </div>
   );
@@ -40,44 +42,43 @@ function Plant({ plant }) {
     setComments([...comments, newComment]);
   }
   return (
-  <>
-    <Card
-      body
-      inverse
-      style={{
-        backgroundColor: "#333",
-        borderColor: "#333",
-        position: ""
-      }}
-      className="text-left"
-    >
-      <CardImg
-        top
-        width="100%"
-        src={plant.image}
-        alt="Card image cap"
-      />
-       <CardBody>
+    <>
+      <Card
+        body
+        inverse
+        style={{
+          backgroundColor: "#333",
+          borderColor: "#333",
+          position: "",
+        }}
+        className="text-left"
+      >
+        <CardImg top width="100%" src={plant.image} alt="Card image cap" />
+        <CardBody>
           <CardText>Common name: {plant.commonName}</CardText>
           <CardText>Scientific name: {plant.scientificName}</CardText>
           <CardText>Family: {plant.familyName}</CardText>
           <CardText>Plant log: </CardText>
-          {comments.map(comment => <CardText key={comment._id}>{comment.comment}</CardText>)}
-         
+          {comments.map((comment) => (
+            <CardText key={comment._id}>{comment.comment}</CardText>
+          ))}
+
           <Col sm="12" md={{ size: 6, offset: 3 }}>
-           <CommentBox onCommentAdd={(comment) => handleCommentAdd(comment, plant._id)} />
+            <CommentBox
+              onCommentAdd={(comment) => handleCommentAdd(comment, plant._id)}
+            />
           </Col>
-         </CardBody>
-     </Card>
+        </CardBody>
+      </Card>
     </>
   );
 }
 
 function CommentBox({ onCommentAdd }) {
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   function handleClick() {
     onCommentAdd(comment);
-    setComment('');
+    setComment("");
   }
   return (
     <>
@@ -86,7 +87,7 @@ function CommentBox({ onCommentAdd }) {
         name="comment"
         id="comment"
         value={comment}
-        onChange={e => setComment(e.target.value)}
+        onChange={(e) => setComment(e.target.value)}
         placeholder="Add information about your plant"
       />
       <Button onClick={() => handleClick()}>Submit</Button>

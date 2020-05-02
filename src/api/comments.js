@@ -1,4 +1,3 @@
-
 /**
  * Get comments
  * @param {String} plantId
@@ -18,8 +17,8 @@ export async function add(comment, plantId) {
     method: "POST",
     body: JSON.stringify({ comment, plantId }),
     headers: {
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   });
   return response.json();
 }
